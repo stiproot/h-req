@@ -5,6 +5,5 @@
     "name": "stiproot"
   },
   "description": "Turn an idea or problem into a clear request and follow what happens next.",
-  "license": "MIT",
-  "icon": ".claude-plugin/icon.png"
+  "license": "MIT"
 }
