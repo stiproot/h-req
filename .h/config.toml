@@ -22,7 +22,7 @@ url = "https://ajcjounhwukqzsnbdkep.supabase.co/functions/v1/h-reviewer-gh-mcp"
 # review thread resolved, at the pinned head.
 [github.reviewer_gate]
 approve = true
-auto_merge = false  # a public repository: merging publishes, so a maintainer reads every change before it merges
+auto_merge = true  # h-reviewer is the gate: an approval at the gated sha merges, as in every h repository
 merge_method = "squash"
 
 [github.reviewer_gate.rules]
