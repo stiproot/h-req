@@ -1,0 +1,34 @@
+# h's configuration for this repository: which GitHub identities h's runs use here, and the rules
+# the reviewer gate applies before it approves and merges a pull request. Only ids live here; each
+# app's private key is machine-local (~/.config/h/<app>.pem, owner-only).
+
+# Writing steps (implement, create-pr, revise-pr) push, open PRs and reply as h-implementer[bot].
+[github]
+implementer_credential = "app"
+
+[github.implementer_app]
+app_id = "5482803"
+installation_id = 175527311
+
+# Reviews are read and posted as h-reviewer[bot], through the hosted reviewer MCP.
+[github.reviewer_app]
+app_id = "5422064"
+installation_id = 174020766
+
+[github.reviewer_mcp]
+url = "https://ajcjounhwukqzsnbdkep.supabase.co/functions/v1/h-reviewer-gh-mcp"
+
+# The reviewer's approval is the merge gate: a CLEAN verdict from a two-provider panel, every
+# review thread resolved, at the pinned head.
+[github.reviewer_gate]
+approve = true
+auto_merge = true  # merging main publishes the plugin; nothing else deploys
+merge_method = "squash"
+
+[github.reviewer_gate.rules]
+verdict_clean = true
+min_panelists = 2
+distinct_providers = true
+sweep_green = false
+threads_resolved = true
+head_pinned = true
