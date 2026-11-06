@@ -25,7 +25,9 @@ collaborator's existing `gh` login.
 
 If a draft-only request is running in a non-interactive session where a pre-flight command or checklist
 read is denied, do not pretend the check succeeded and do not file anything. Still render the bundled
-Issue shape from this skill's known requirements, putting every unavailable or unanswered MUST item
+Issue shape from this skill's known requirements. The fallback draft must include the literal `===SPEC===`
+and `===END===` delimiters and the `Kind`, `For`, `Problem`, `Main path`, `Done means`, `Example`, `Out of
+scope`, `Edges`, and `Open questions` fields in that order. Put every unavailable or unanswered MUST item
 under `Open questions`. Explain briefly that the checks must succeed before anything can be sent.
 
 ## Build the request
