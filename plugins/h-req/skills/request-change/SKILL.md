@@ -23,6 +23,11 @@ collaborator's existing `gh` login.
 3. If neither method finds a project, say plainly that this needs to be run inside the project's folder,
    then stop.
 
+If a draft-only request is running in a non-interactive session where a pre-flight command or checklist
+read is denied, do not pretend the check succeeded and do not file anything. Still render the bundled
+Issue shape from this skill's known requirements, putting every unavailable or unanswered MUST item
+under `Open questions`. Explain briefly that the checks must succeed before anything can be sent.
+
 ## Build the request
 
 Always read [references/rubric.md](references/rubric.md). Also read `.h/request-rubric.md` when it exists.
