@@ -1,0 +1,14 @@
+{
+  "name": "h-req",
+  "owner": {
+    "name": "stiproot"
+  },
+  "description": "A marketplace for turning ideas and problems into clear project requests.",
+  "plugins": [
+    {
+      "name": "h-req",
+      "source": "./plugins/h-req",
+      "description": "Turn an idea or problem into a clear request and follow what happens next."
+    }
+  ]
+}
