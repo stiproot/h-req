@@ -22,33 +22,33 @@ Never ask for, read, display, or store a password, credential, or token.
 Run:
 
 ```sh
-gh issue list -R <repo> --assignee @me --state open --json number,title,url,labels
-gh issue list -R <repo> --author @me --state open --json number
+gh issue list -R <repo> --assignee @me --state open --limit 200 --json number,title,url,labels
+gh issue list -R <repo> --author @me --state open --limit 200 --json number
 ```
 
-Drop every issue whose number is in the second list: she wrote those, and "My requests" below covers
-them. If nothing is left, say so in one line ("No questions are waiting for you.") and continue to her
+Drop every issue whose number is in the second list: the collaborator wrote those, and "My requests" below covers
+them. If nothing is left, say so in one line ("No questions are waiting for you.") and continue to their
 requests. Otherwise show these FIRST, under the heading "Questions waiting for you", by title, and offer
-to go through one. Handle one issue at a time, when she picks it.
+to go through one. Handle one issue at a time, when they pick it.
 
 ### Answering one
 
 1. Fetch it: `gh issue view <number> -R <repo> --json body,comments`.
 2. Show its questions in plain words, ONE OR TWO AT A TIME.
-3. Help her think each one through. "Don't know yet" is a fine answer; record it as "don't know yet".
+3. Help them think each one through. "Don't know yet" is a fine answer; record it as "don't know yet".
 4. When all are answered, show the full answer and ask "Shall I send this?"
 5. Only on a clear yes, write the answer to a temporary file (`mktemp`) and run
    `gh issue comment <number> -R <repo> --body-file <tmp>`. Then share the issue link and delete the file.
 6. Never close, label, or reassign the issue. The maintainer does that.
-7. For attachments, open the issue with `gh issue view <number> -R <repo> --web` and tell her to drag
-   the files into a comment herself. Never upload files any other way.
+7. For attachments, open the issue with `gh issue view <number> -R <repo> --web` and tell them to drag
+   the files into a comment themselves. Never upload files any other way.
 
 ## My requests
 
 Run:
 
 ```sh
-gh issue list -R <repo> --author @me --state all --json number,title,state,labels,url
+gh issue list -R <repo> --author @me --state all --limit 200 --json number,title,state,labels,url
 ```
 
 Keep open entries carrying `request`, `agent-needs-info`, `ready-for-approval`, or `agent-approved`, and
@@ -59,7 +59,7 @@ keep every closed entry. Describe each result using this priority and wording:
   that completed it when present.
 - `agent-needs-info`: **a question for you**. Fetch the request's comments, show the latest question,
   and offer to help write an answer. Show the proposed answer and ask for confirmation before posting
-  it with `gh issue comment <number> -R <repo> --body <answer>`.
+  it with `gh issue comment <number> -R <repo> --body-file <tmp>` (write the answer to a temporary file first).
 - `ready-for-approval`: **complete, waiting for approval**.
 - `agent-approved`: **approved, being built**.
 - `request`: **waiting to be looked at**.
