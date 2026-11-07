@@ -35,7 +35,9 @@ to go through one. Handle one issue at a time, when they pick it.
 
 1. Fetch it: `gh issue view <number> -R <repo> --json body,comments`.
 2. Show its questions in plain words, ONE OR TWO AT A TIME.
-3. Help them think each one through. "Don't know yet" is a fine answer; record it as "don't know yet".
+3. Help them decide each one. When they are unsure, offer two or three concrete options grounded in the
+   project's own documents, and what each would mean. They may skip a question and come back to it later.
+   Do not suggest "don't know" as an answer.
 4. When all are answered, show the full answer and ask "Shall I send this?"
 5. Only on a clear yes, write the answer to a temporary file (`mktemp`) and run
    `gh issue comment <number> -R <repo> --body-file <tmp>`. Then share the issue link and delete the file.
