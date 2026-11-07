@@ -15,7 +15,7 @@ In Claude Code, run:
 ```
 
 Then open the project folder and describe what you want. For example, in a recipe-sharing app: “I'd
-like cooks to be able to save a recipe for later.” You can also ask “Any news on my requests?”
+like cooks to be able to save a recipe for later.” You can also ask “Any news on my requests?” or “Any questions for me?”
 
 ## Project setup
 
